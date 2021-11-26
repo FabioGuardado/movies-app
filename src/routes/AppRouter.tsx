@@ -10,10 +10,12 @@ import ShowDetails from '../pages/ShowDetails/ShowDetails';
 import SeasonDetails from '../pages/SeasonDetails/SeasonDetails';
 import PersonDetails from '../pages/PersonDetails/PersonDetails';
 import ProfilePage from '../pages/ProfilePage/ProfilePage';
+import Navbar from '../components/UI/Navbar/Navbar';
 
 const AppRouter: React.FunctionComponent = () => {
   return (
     <Router>
+      <Navbar />
       <Switch>
         <Route path={`${routes.SHOW}:id${routes.SEASON}:id`}>
           <SeasonDetails />
