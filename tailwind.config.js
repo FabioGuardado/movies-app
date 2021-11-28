@@ -3,14 +3,15 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      transform: ['hover', 'focus'],
       fontFamily: {
         rubik: ['Rubik', 'sans-serif'],
       },
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      transform: ['hover', 'focus'],
+    },
   },
   plugins: [require('@tailwindcss/forms')],
 };
