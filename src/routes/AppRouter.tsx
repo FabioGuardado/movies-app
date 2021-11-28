@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import routes from './routes';
 
+import Layout from '../components/UI/Layout/Layout';
 import HomePage from '../pages/HomePage/HomePage';
 import SearchPage from '../pages/SearchPage/SearchPage';
 import MovieDetails from '../pages/MovieDetails/MovieDetails';
@@ -16,32 +17,34 @@ const AppRouter: React.FunctionComponent = () => {
   return (
     <Router>
       <Navbar />
-      <Switch>
-        <Route path={`${routes.SHOW}:id${routes.SEASON}:id`}>
-          <SeasonDetails />
-        </Route>
-        <Route path={`${routes.SHOW}:id`}>
-          <ShowDetails />
-        </Route>
-        <Route path={`${routes.MOVIE}:id`}>
-          <MovieDetails />
-        </Route>
-        <Route path={`${routes.PERSON}:id`}>
-          <PersonDetails />
-        </Route>
-        <Route path={routes.PROFILE}>
-          <ProfilePage />
-        </Route>
-        <Route path={routes.SEARCH}>
-          <SearchPage />
-        </Route>
-        <Route exact path={routes.HOME}>
-          <HomePage />
-        </Route>
-        <Route path="*">
-          <NotFoundPage />
-        </Route>
-      </Switch>
+      <Layout>
+        <Switch>
+          <Route path={`${routes.SHOW}:id${routes.SEASON}:id`}>
+            <SeasonDetails />
+          </Route>
+          <Route path={`${routes.SHOW}:id`}>
+            <ShowDetails />
+          </Route>
+          <Route path={`${routes.MOVIE}:id`}>
+            <MovieDetails />
+          </Route>
+          <Route path={`${routes.PERSON}:id`}>
+            <PersonDetails />
+          </Route>
+          <Route path={routes.PROFILE}>
+            <ProfilePage />
+          </Route>
+          <Route path={routes.SEARCH}>
+            <SearchPage />
+          </Route>
+          <Route exact path={routes.HOME}>
+            <HomePage />
+          </Route>
+          <Route path="*">
+            <NotFoundPage />
+          </Route>
+        </Switch>
+      </Layout>
     </Router>
   );
 };
