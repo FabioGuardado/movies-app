@@ -11,7 +11,7 @@ import {
   getDate,
   getDetailsLink,
   getNameOrTitle,
-} from '../../../utils/cardsGuards';
+} from '../../../utils/TypeGuards';
 
 const HomePageCard: React.FunctionComponent<HomePageCardProps> = ({ data }) => {
   return (
