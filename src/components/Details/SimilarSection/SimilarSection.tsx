@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { getSimilarMovies } from '../../../API/movies';
+import { getSimilarShows } from '../../../API/shows';
 import IResponse from '../../../interfaces/IResponse';
 import { IMovieSummary, IShowSummary } from '../../../interfaces/ISummaries';
 import DetailsSectionProps from '../../../types/DetailsSectionProps';
-import { getNameOrTitle } from '../../../utils/TypeGuards';
 import SimilarItemCard from './SimilarItemCard/SimilarItemCard';
 
 const SimilarSection: React.FunctionComponent<DetailsSectionProps> = ({
@@ -17,7 +17,10 @@ const SimilarSection: React.FunctionComponent<DetailsSectionProps> = ({
   useEffect(() => {
     let mounted = true;
     const getData = async (id: number | string) => {
-      const response = await getSimilarMovies(Number(id));
+      const response =
+        elementType === 'movie'
+          ? await getSimilarMovies(Number(id))
+          : await getSimilarShows(Number(id));
 
       if (mounted) {
         setSimilarItems(response);
@@ -38,7 +41,11 @@ const SimilarSection: React.FunctionComponent<DetailsSectionProps> = ({
       <div className="horizontal-item-list mb-3 h-auto pl-2 pb-5 flex flex-row flex-nowrap overflow-x-scroll">
         {similarItems &&
           similarItems.results.map((item: IMovieSummary | IShowSummary) => (
-            <SimilarItemCard key={item.id} item={item} />
+            <SimilarItemCard
+              key={item.id}
+              item={item}
+              elementType={elementType}
+            />
           ))}
       </div>
     </section>
