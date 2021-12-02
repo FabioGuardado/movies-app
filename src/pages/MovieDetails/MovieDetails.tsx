@@ -53,7 +53,7 @@ const MovieDetails: React.FunctionComponent = () => {
                 alt={movieData.title}
               />
             </div>
-            <div className="text-white self-center mt-3">
+            <div className="sm:w-2/3 text-white self-center mt-3">
               <div id="header" className="">
                 <h1 className="text-4xl font-bold mb-2">{movieData.title}</h1>
                 <span className="p-1 mr-3 border border-solid border-white rounded-md uppercase">
@@ -84,10 +84,12 @@ const MovieDetails: React.FunctionComponent = () => {
                   <span className="font-light">{movieData.vote_average}</span>
                 </div>
               </div>
-              <div id="overview" className="my-2">
-                <h3 className="text-xl font-bold">Overview</h3>
-                <p className="text-base lg:w-4/5">{movieData.overview}</p>
-              </div>
+              {movieData.overview && (
+                <div id="overview" className="my-2">
+                  <h3 className="text-xl font-bold">Overview</h3>
+                  <p className="text-base lg:w-4/5">{movieData.overview}</p>
+                </div>
+              )}
               <div id="links" className="my-3">
                 {movieData.homepage && (
                   <a href={movieData.homepage}>
