@@ -28,10 +28,9 @@ const FactsSection: React.FunctionComponent<FactsSectionProps> = ({ data }) => {
         </div>
         {isShow(data) && (
           <>
-            <div className="text-center">
-              <h3 className="font-bold">Network</h3>
+            <div className="network-element text-center">
+              <h3 className="font-bold text-center">Network</h3>
               <img
-                height="80px"
                 src={`${process.env.REACT_APP_IMAGE_URL}${getNetworkPath(
                   data,
                 )}`}
