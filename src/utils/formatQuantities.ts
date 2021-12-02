@@ -1,4 +1,5 @@
-const formatQuantities = (numberToFormat: number) => {
+const formatQuantities = (numberToFormat: number | null) => {
+  if (numberToFormat === null) return 0;
   if (numberToFormat > 999) {
     var newNumber = '';
     let transformedNumber = numberToFormat.toString();
