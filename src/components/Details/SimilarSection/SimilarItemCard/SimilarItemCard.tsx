@@ -5,12 +5,16 @@ import routes from '../../../../routes/routes';
 import { getNameOrTitle } from '../../../../utils/TypeGuards';
 
 import defaultImage from '../../../../assets/backdrop-default.png';
+import SimilarItemCardProps from '../../../../types/SimilarCardProps';
 
 const SimilarItemCard: React.FunctionComponent<SimilarItemCardProps> = ({
   item,
+  elementType,
 }) => {
   return (
-    <Link to={`${routes.MOVIE}${item.id}`}>
+    <Link
+      to={`${elementType === 'movie' ? routes.MOVIE : routes.SHOW}${item.id}`}
+    >
       <div className="similar-card mx-2">
         <img
           className="rounded-md"
@@ -30,7 +34,3 @@ const SimilarItemCard: React.FunctionComponent<SimilarItemCardProps> = ({
 };
 
 export default SimilarItemCard;
-
-type SimilarItemCardProps = {
-  item: IMovieSummary | IShowSummary;
-};

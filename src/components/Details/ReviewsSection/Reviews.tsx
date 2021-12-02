@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getReviewsByMovieId } from '../../../API/movies';
+import { getReviewsByShowId } from '../../../API/shows';
 import IResponse from '../../../interfaces/IResponse';
 import IReview from '../../../interfaces/IReview';
 import routes from '../../../routes/routes';
@@ -18,7 +19,10 @@ const Reviews: React.FunctionComponent<DetailsSectionProps> = ({
   useEffect(() => {
     let mounted = true;
     const getData = async (id: number | string) => {
-      const response = await getReviewsByMovieId(Number(id));
+      const response =
+        elementType === 'movie'
+          ? await getReviewsByMovieId(Number(id))
+          : await getReviewsByShowId(Number(id));
 
       if (mounted) {
         setReviewsData(response);
@@ -46,7 +50,9 @@ const Reviews: React.FunctionComponent<DetailsSectionProps> = ({
             <Review review={reviewsData.results[0]} />
           </div>
           <Link
-            to={`${routes.MOVIE}${id}${routes.REVIEWS}`}
+            to={`${elementType === 'movie' ? routes.MOVIE : routes.SHOW}${id}${
+              routes.REVIEWS
+            }`}
             className="text-lg border-b border-blue-500 text-blue-500"
           >
             See all reviews

@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getCreditsByMovieId } from '../../../API/movies';
+import { getCreditsByShowId } from '../../../API/shows';
 import ICast from '../../../interfaces/ICast';
-import ICredits from '../../../interfaces/ICredits';
 import routes from '../../../routes/routes';
 import DetailsSectionProps from '../../../types/DetailsSectionProps';
 import PersonCard from '../../UI/PersonCard/PersonCard';
@@ -13,17 +13,18 @@ const CastSection: React.FunctionComponent<DetailsSectionProps> = ({
   id,
   elementType,
 }) => {
-  const [creditsData, setCreditsData] = useState<ICredits | null>(null);
   const [castPreview, setCastPreview] = useState<ICast[] | null>(null);
 
   useEffect(() => {
     let mounted = true;
 
     const getData = async () => {
-      const creditsResponde = await getCreditsByMovieId(Number(id));
+      const creditsResponde =
+        elementType === 'movie'
+          ? await getCreditsByMovieId(Number(id))
+          : await getCreditsByShowId(Number(id));
 
       if (mounted) {
-        setCreditsData(creditsResponde);
         setCastPreview(creditsResponde.cast.slice(0, 9));
       }
     };
