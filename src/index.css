@@ -105,6 +105,19 @@
     height: 80px;
     border-radius: 8px;
   }
+  .network-element img {
+    width: 80px;
+    margin: 0 auto;
+  }
+
+  .not-found-container {
+    max-width: 300px;
+    height: auto;
+  }
+
+  .not-found-container img {
+    width: 300px;
+  }
 
   @media screen and (max-width: 1024px) {
     .wrapper {
@@ -113,6 +126,10 @@
 
     .image-container {
       width: 320px;
+    }
+
+    .network-element img {
+      width: 40px;
     }
   }
 
