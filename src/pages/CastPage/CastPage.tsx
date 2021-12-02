@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import { getCreditsByMovieId } from '../../API/movies';
 import Layout from '../../components/UI/Layout/Layout';
 import Loader from '../../components/UI/Loader/Loader';
-import PersonCard from '../../components/UI/PersonCard/PersonCard';
 import ICast from '../../interfaces/ICast';
 import ICredits from '../../interfaces/ICredits';
 import ICrew from '../../interfaces/ICrew';
@@ -14,6 +13,7 @@ import routes from '../../routes/routes';
 import DetailsParams from '../../types/DetailsParams';
 import scrollTop from '../../utils/scrollTop';
 import defaultImage from '../../assets/user-icon.png';
+import { getCreditsByShowId } from '../../API/shows';
 
 const CastPage: React.FunctionComponent = () => {
   let { pathname } = useLocation();
@@ -24,7 +24,9 @@ const CastPage: React.FunctionComponent = () => {
     scrollTop();
     let mounted = true;
     const getData = async () => {
-      const response = await getCreditsByMovieId(Number(id));
+      const response = pathname.includes('/movie')
+        ? await getCreditsByMovieId(Number(id))
+        : await getCreditsByShowId(Number(id));
 
       if (mounted) {
         setCreditsData(response);
