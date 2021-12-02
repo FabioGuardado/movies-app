@@ -19,6 +19,12 @@ const AppRouter: React.FunctionComponent = () => {
     <Router>
       <Navbar />
       <Switch>
+        <Route path={`${routes.SHOW}:id${routes.CAST}`}>
+          <CastPage />
+        </Route>
+        <Route path={`${routes.SHOW}:id${routes.REVIEWS}`}>
+          <ReviewsPage />
+        </Route>
         <Route path={`${routes.SHOW}:id${routes.SEASON}:id`}>
           <SeasonDetails />
         </Route>
