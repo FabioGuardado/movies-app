@@ -2,6 +2,7 @@ import { get } from '../helpers/requestService';
 import ICredits from '../interfaces/ICredits';
 import IResponse from '../interfaces/IResponse';
 import IReview from '../interfaces/IReview';
+import ISeason from '../interfaces/ISeason';
 import IShow from '../interfaces/IShow';
 import { IShowSummary } from '../interfaces/ISummaries';
 
@@ -39,5 +40,12 @@ export async function getSimilarShows(showId: number) {
     `/tv/${showId}/similar?api_key=${API_KEY}`,
   );
 
+  return response;
+}
+
+export async function getSeasonDetails(showId: number, seasonNumber: number) {
+  const response = await get<ISeason>(
+    `/tv/${showId}/season/${seasonNumber}?api_key=${API_KEY}`,
+  );
   return response;
 }

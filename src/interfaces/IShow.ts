@@ -1,5 +1,5 @@
 import IGenre from './IGenre';
-import ISeason from './ISeason';
+import { ISeasonSummary } from './ISummaries';
 
 interface IShow {
   backdrop_path: string | null;
@@ -26,7 +26,7 @@ interface IShow {
   poster_path: string | null;
   production_companies: IProductionCompany[];
   production_countries: IProductionCountry[];
-  seasons: ISeason[];
+  seasons: ISeasonSummary[];
   spoken_languages: ISpokenLanguage[];
   status: string;
   tagline: string;

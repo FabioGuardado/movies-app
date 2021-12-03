@@ -18,6 +18,7 @@ import Reviews from '../../components/Details/ReviewsSection/Reviews';
 import IGenre from '../../interfaces/IGenre';
 import IShow from '../../interfaces/IShow';
 import DetailsParams from '../../types/DetailsParams';
+import SeasonsSection from '../../components/Details/SeasonsSection/SeasonsSection';
 
 const ShowDetails: React.FunctionComponent = () => {
   const [showData, setShowData] = useState<IShow | null>(null);
@@ -109,6 +110,10 @@ const ShowDetails: React.FunctionComponent = () => {
               <CastSection id={showData.id} elementType="tv" />
               <FactsSection data={showData} />
             </section>
+            <SeasonsSection
+              showId={showData.id}
+              lastSeason={showData.seasons[showData.seasons.length - 1]}
+            />
             <Reviews id={showData.id} elementType="tv" />
             <SimilarSection id={showData.id} elementType="tv" />
           </Layout>

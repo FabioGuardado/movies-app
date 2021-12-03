@@ -13,6 +13,7 @@ import ProfilePage from '../pages/ProfilePage/ProfilePage';
 import Navbar from '../components/UI/Navbar/Navbar';
 import ReviewsPage from '../pages/ReviewsPage/ReviewsPage';
 import CastPage from '../pages/CastPage/CastPage';
+import SeasonsPage from '../pages/SeasonsPage/SeasonsPage';
 
 const AppRouter: React.FunctionComponent = () => {
   return (
@@ -25,8 +26,11 @@ const AppRouter: React.FunctionComponent = () => {
         <Route path={`${routes.SHOW}:id${routes.REVIEWS}`}>
           <ReviewsPage />
         </Route>
-        <Route path={`${routes.SHOW}:id${routes.SEASON}:id`}>
+        <Route path={`${routes.SHOW}:id${routes.SEASONS}:seasonNumber`}>
           <SeasonDetails />
+        </Route>
+        <Route path={`${routes.SHOW}:id${routes.SEASONS}`}>
+          <SeasonsPage />
         </Route>
         <Route path={`${routes.SHOW}:id`}>
           <ShowDetails />
