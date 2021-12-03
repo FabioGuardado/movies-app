@@ -3,7 +3,7 @@ const routes = {
   SEARCH: '/search',
   MOVIE: '/movie/',
   SHOW: '/show/',
-  SEASON: '/season/',
+  SEASONS: '/seasons/',
   CAST: '/cast',
   REVIEWS: '/reviews',
   PERSON: '/person/',
