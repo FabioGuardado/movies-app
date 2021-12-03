@@ -1,9 +1,12 @@
+import IEpisode from './IEpisode';
+
 interface ISeason {
+  _id: string;
   air_date: string;
-  episode_count: number;
-  id: number;
+  episodes: IEpisode[];
   name: string;
   overview: string;
+  id: number;
   poster_path: string;
   season_number: number;
 }
