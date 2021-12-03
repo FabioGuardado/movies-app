@@ -119,6 +119,23 @@
     width: 300px;
   }
 
+  .season-card {
+    max-height: 195px;
+  }
+
+  .season-card img {
+    height: 195px;
+  }
+
+  .episode-card {
+    height: 127px;
+  }
+
+  .episode-card img {
+    height: 100%;
+    width: auto;
+  }
+
   @media screen and (max-width: 1024px) {
     .wrapper {
       width: 90vw;
@@ -130,6 +147,12 @@
 
     .network-element img {
       width: 40px;
+    }
+  }
+
+  @media screen and (max-width: 780px) {
+    .episode-card {
+      height: auto;
     }
   }
 
