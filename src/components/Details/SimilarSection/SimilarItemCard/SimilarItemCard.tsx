@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { IMovieSummary, IShowSummary } from '../../../../interfaces/ISummaries';
 import routes from '../../../../routes/routes';
 import { getNameOrTitle } from '../../../../utils/TypeGuards';
 

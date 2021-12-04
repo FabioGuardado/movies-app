@@ -32,7 +32,7 @@ const SimilarSection: React.FunctionComponent<DetailsSectionProps> = ({
     return () => {
       mounted = false;
     };
-  }, [id]);
+  }, [id, elementType]);
   return (
     <section className="mt-12 pt-6 border-t border-solid border-gray-300">
       <h2 className="my-6 font-bold text-3xl text-black">

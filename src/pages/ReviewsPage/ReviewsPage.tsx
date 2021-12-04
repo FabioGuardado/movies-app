@@ -38,7 +38,7 @@ const ReviewsPage: React.FunctionComponent = () => {
     return () => {
       mounted = false;
     };
-  }, [id]);
+  }, [id, pathname]);
   return reviewsData && reviewsData?.total_results > 0 ? (
     <>
       <div className="mb-5 bg-gray-900 text-white h-24 flex flex-row items-center">
