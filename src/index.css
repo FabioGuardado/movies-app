@@ -136,6 +136,11 @@
     width: auto;
   }
 
+  .person-details img {
+    height: 450px;
+    width: auto;
+  }
+
   @media screen and (max-width: 1024px) {
     .wrapper {
       width: 90vw;
@@ -153,6 +158,12 @@
   @media screen and (max-width: 780px) {
     .episode-card {
       height: auto;
+    }
+
+    .person-details img {
+      height: auto;
+      width: 250px;
+      margin: 0 auto;
     }
   }
 
