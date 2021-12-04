@@ -34,7 +34,7 @@ const CastSection: React.FunctionComponent<DetailsSectionProps> = ({
     return () => {
       mounted = false;
     };
-  }, [id]);
+  }, [id, elementType]);
 
   return (
     <div className="lg:w-5/6">

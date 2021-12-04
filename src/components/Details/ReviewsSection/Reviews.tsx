@@ -34,7 +34,7 @@ const Reviews: React.FunctionComponent<DetailsSectionProps> = ({
     return () => {
       mounted = false;
     };
-  }, [id]);
+  }, [id, elementType]);
 
   return (
     <>

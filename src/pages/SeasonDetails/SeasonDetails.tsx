@@ -1,7 +1,7 @@
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
-import { useLocation, useParams } from 'react-router';
+import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import Layout from '../../components/UI/Layout/Layout';
 import Loader from '../../components/UI/Loader/Loader';
@@ -9,8 +9,6 @@ import routes from '../../routes/routes';
 import DetailsParams from '../../types/DetailsParams';
 import scrollTop from '../../utils/scrollTop';
 import { getSeasonDetails } from '../../API/shows';
-import SeasonCard from '../../components/Details/SeasonsSection/SeasonCard/SeasonCard';
-import { ISeasonSummary } from '../../interfaces/ISummaries';
 import ISeason from '../../interfaces/ISeason';
 import IEpisode from '../../interfaces/IEpisode';
 import EpisodeCard from '../../components/Details/SeasonsSection/EpisodeCard/EpisodeCard';
@@ -55,7 +53,7 @@ const SeasonDetails: React.FunctionComponent = () => {
       <Layout>
         <div className="sm:w-3/4 sm:mx-auto">
           {seasonDetails.episodes.map((episode: IEpisode) => (
-            <EpisodeCard episode={episode} />
+            <EpisodeCard key={episode.id} episode={episode} />
           ))}
         </div>
       </Layout>

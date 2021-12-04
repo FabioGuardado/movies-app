@@ -38,7 +38,7 @@ const CastPage: React.FunctionComponent = () => {
     return () => {
       mounted = false;
     };
-  }, [id]);
+  }, [id, pathname]);
   return creditsData ? (
     <>
       <div className="mb-5 bg-gray-900 text-white h-24 flex flex-row items-center">
@@ -57,8 +57,8 @@ const CastPage: React.FunctionComponent = () => {
       </div>
 
       <Layout>
-        <div className="grid grid-cols-2">
-          <div className="w-1/2">
+        <div className="grid grid-cols-1 sm:grid-cols-2">
+          <div className="sm:w-1/2">
             <h1 className="mb-5 font-bold text-3xl">
               Cast{' '}
               <span className="text-2xl text-gray-500">{`(${creditsData.cast.length})`}</span>
@@ -82,7 +82,7 @@ const CastPage: React.FunctionComponent = () => {
               </Link>
             ))}
           </div>
-          <div className="w-1/2">
+          <div className="sm:w-1/2">
             <h1 className="mb-5 font-bold text-3xl">
               Crew{' '}
               <span className="text-2xl text-gray-500">{`(${creditsData.crew.length})`}</span>
