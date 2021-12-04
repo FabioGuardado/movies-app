@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { getPopularMovies } from '../../API/movies';
 import { getPopularShows } from '../../API/shows';
 import HomePageCard from '../../components/HomePage/Card/Card';
+import Layout from '../../components/UI/Layout/Layout';
+import Loader from '../../components/UI/Loader/Loader';
 import { IMovieSummary, IShowSummary } from '../../interfaces/ISummaries';
 
 const HomePage: React.FunctionComponent = () => {
   const [movies, setMovies] = useState<IMovieSummary[] | null>(null);
   const [shows, setShows] = useState<IShowSummary[] | null>(null);
-  const [error, setError] = useState(false);
+  /* const [error, setError] = useState(false); */
 
   useEffect(() => {
     let mounted: boolean = true;
@@ -26,8 +28,8 @@ const HomePage: React.FunctionComponent = () => {
     };
   }, []);
 
-  return (
-    <>
+  return movies && shows ? (
+    <Layout>
       <section className="mb-5">
         <div className="p-3 bg-gray-200 rounded-sm my-5">
           <p className="text-xl ml-2">
@@ -55,7 +57,9 @@ const HomePage: React.FunctionComponent = () => {
             ))}
         </div>
       </section>
-    </>
+    </Layout>
+  ) : (
+    <Loader />
   );
 };
 

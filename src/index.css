@@ -14,9 +14,170 @@
     margin: 0 auto;
   }
 
+  .image-container {
+    width: 360px;
+    height: 460px;
+  }
+
+  .image-container img {
+    min-width: 300px;
+    height: auto;
+  }
+
+  .person-card {
+    width: 150px;
+    height: auto;
+  }
+
+  .person-card img {
+    width: 150px;
+    height: 215px;
+  }
+
+  .review-author-image {
+    width: 60px;
+    height: 60px;
+  }
+
+  .review-author-image img {
+    width: auto;
+    height: auto;
+  }
+
+  .review-compact-text {
+    height: 1.5rem;
+    overflow: hidden;
+  }
+
+  .review-full-text {
+    height: auto;
+  }
+
+  .similar-card {
+    min-width: 250px;
+    height: auto;
+  }
+
+  .similar-card img {
+    width: 250px;
+    height: 141px;
+  }
+
+  .horizontal-item-list::-webkit-scrollbar {
+    height: 10px;
+  }
+
+  .horizontal-item-list::-webkit-scrollbar-track {
+    background: #ebebeb;
+    border-radius: 20px;
+  }
+
+  .horizontal-item-list::-webkit-scrollbar-thumb {
+    background-color: #a0a0a0;
+    border-radius: 20px;
+  }
+
+  .horizontal-item-list {
+    scrollbar-width: thin;
+    scrollbar-color: #a0a0a0 #ebebeb;
+  }
+
+  .empty {
+    width: auto;
+    height: 80vh;
+  }
+
+  .empty img {
+    width: 420px;
+  }
+
+  .credits-list-item {
+    max-height: 80px;
+    overflow: hidden;
+    margin-botom: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 1rem 0;
+  }
+
+  .credits-list-item img {
+    height: 80px;
+    border-radius: 8px;
+  }
+  .network-element img {
+    width: 80px;
+    margin: 0 auto;
+  }
+
+  .not-found-container {
+    max-width: 300px;
+    height: auto;
+  }
+
+  .not-found-container img {
+    width: 300px;
+  }
+
+  .season-card {
+    max-height: 195px;
+  }
+
+  .season-card img {
+    height: 195px;
+  }
+
+  .episode-card {
+    height: 127px;
+  }
+
+  .episode-card img {
+    height: 100%;
+    width: auto;
+  }
+
+  .person-details img {
+    height: 450px;
+    width: auto;
+  }
+
   @media screen and (max-width: 1024px) {
     .wrapper {
       width: 90vw;
+    }
+
+    .image-container {
+      width: 320px;
+    }
+
+    .network-element img {
+      width: 40px;
+    }
+  }
+
+  @media screen and (max-width: 780px) {
+    .episode-card {
+      height: auto;
+    }
+
+    .person-details img {
+      height: auto;
+      width: 250px;
+      margin: 0 auto;
+    }
+  }
+
+  @media screen and (max-width: 325px) {
+    .image-container {
+      width: 280px;
+    }
+
+    .image-container img {
+      min-width: 250px;
+    }
+
+    .empty img {
+      width: 300px;
     }
   }
 }

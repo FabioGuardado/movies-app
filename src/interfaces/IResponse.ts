@@ -1,4 +1,5 @@
 interface IResponse<T> {
+  id?: number;
   page: number;
   results: T[];
   total_results: number;

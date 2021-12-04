@@ -12,7 +12,7 @@ const Navbar: React.FunctionComponent = () => {
     setShowBurgerMenu(!showBurgerMenu);
   };
   return (
-    <nav className="h-24 border-b border-solid border-gray-400 flex flex-row justify-around items-center">
+    <nav className="navbar h-24 border-b border-solid border-gray-400 flex flex-row justify-around items-center">
       <Link to={routes.HOME}>
         <h1 className="text-4xl font-bold">MoviesApp</h1>
       </Link>
