@@ -1,10 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-  faStar,
-  faUsers,
-  faCalendarDay,
-} from '@fortawesome/free-solid-svg-icons';
+import { faStar, faCalendarDay } from '@fortawesome/free-solid-svg-icons';
 import HomePageCardProps from '../../../types/HomePageCardProps';
 import CardItem from './CardItem/CardItem';
 import {
