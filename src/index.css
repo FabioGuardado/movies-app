@@ -141,6 +141,16 @@
     width: auto;
   }
 
+  .home-page-card {
+    width: 175px;
+    height: auto;
+  }
+
+  .home-page-card img {
+    width: 175px;
+    height: 250px;
+  }
+
   @media screen and (max-width: 1024px) {
     .wrapper {
       width: 90vw;
