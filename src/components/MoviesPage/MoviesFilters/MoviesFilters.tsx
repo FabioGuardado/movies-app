@@ -8,6 +8,7 @@ import {
 } from '../../../interfaces/ICertification';
 import IGenre, { IGenresList } from '../../../interfaces/IGenre';
 import routes from '../../../routes/routes';
+import filtersState from '../../../types/filtersState';
 
 const MoviesFilters: React.FunctionComponent = () => {
   let history = useHistory();
@@ -174,9 +175,3 @@ const MoviesFilters: React.FunctionComponent = () => {
 };
 
 export default MoviesFilters;
-
-type filtersState = {
-  certification: string | null;
-  genre: number | null;
-  year: number | null;
-};
