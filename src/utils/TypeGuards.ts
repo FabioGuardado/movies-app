@@ -2,9 +2,15 @@ import ICast from '../interfaces/ICast';
 import ICrew from '../interfaces/ICrew';
 import IMovie from '../interfaces/IMovie';
 import IShow from '../interfaces/IShow';
-import { IMovieSummary, IShowSummary } from '../interfaces/ISummaries';
+import {
+  IMovieSummary,
+  IPersonSummary,
+  IShowSummary,
+} from '../interfaces/ISummaries';
 
-export const getNameOrTitle = (element: IMovieSummary | IShowSummary) => {
+export const getNameOrTitle = (
+  element: IMovieSummary | IShowSummary | IPersonSummary,
+) => {
   if ('title' in element) return element.title;
 
   return element.name;
@@ -16,10 +22,18 @@ export const getDate = (element: IMovieSummary | IShowSummary) => {
   return element.release_date;
 };
 
-export const getDetailsLink = (element: IMovieSummary | IShowSummary) => {
-  if ('title' in element) return `/movie/${element.id}`;
+export const getDetailsLink = (
+  element: IMovieSummary | IShowSummary | IPersonSummary,
+) => {
+  if (element.media_type) {
+    return `/${element.media_type === 'tv' ? 'show' : element.media_type}/${
+      element.id
+    }`;
+  } else {
+    if ('title' in element) return `/movie/${element.id}`;
 
-  return `/show/${element.id}`;
+    return `/show/${element.id}`;
+  }
 };
 
 export const isCast = (element: ICast | ICrew) => {
@@ -60,4 +74,11 @@ export const getType = (element: IShow | IMovie) => {
 export const getNetworkPath = (element: IShow | IMovie) => {
   if ('networks' in element) return element.networks[0].logo_path;
   return null;
+};
+
+export const getPicture = (
+  element: IMovieSummary | IShowSummary | IPersonSummary,
+) => {
+  if ('profile_path' in element) return element.profile_path;
+  return element.poster_path;
 };

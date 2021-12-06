@@ -7,6 +7,27 @@ import { IMovieSummary } from '../interfaces/ISummaries';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
+export async function getMoviesWithFilters(
+  page: number,
+  certification?: string | null,
+  genre?: number | null,
+  release_year?: number | null,
+) {
+  const response = await get<IResponse<IMovieSummary>>(
+    `/discover/movie?api_key=${API_KEY}&sort_by=popularity.desc&page=${
+      page ? page : 1
+    }${
+      certification
+        ? `&certification_country=US&certification=${certification.trim()}`
+        : ''
+    }${genre ? `&with_genres=${genre}` : ''}${
+      release_year ? `&primary_release_year=${release_year}` : ''
+    }
+  `,
+  );
+  return response;
+}
+
 export async function getPopularMovies() {
   const response = await get<IResponse<IMovieSummary>>(
     `/movie/popular?api_key=${API_KEY}`,

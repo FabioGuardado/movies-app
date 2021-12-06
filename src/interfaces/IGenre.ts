@@ -4,3 +4,7 @@ interface IGenre {
 }
 
 export default IGenre;
+
+export interface IGenresList {
+  genres: IGenre[];
+}

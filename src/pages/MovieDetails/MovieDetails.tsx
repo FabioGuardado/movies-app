@@ -62,7 +62,11 @@ const MovieDetails: React.FunctionComponent = () => {
                 <span>{movieData.release_date}</span>
                 <div className="my-3 flex flex-row flex-wrap items-center">
                   {movieData.genres.map((genre: IGenre) => (
-                    <GenreTag key={genre.id} genre={genre} />
+                    <GenreTag
+                      key={genre.id}
+                      genre={genre}
+                      element_type="movie"
+                    />
                   ))}
                 </div>
               </div>
