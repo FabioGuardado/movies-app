@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import routes from '../../../routes/routes';
 
@@ -13,7 +13,7 @@ const SearchSection: React.FunctionComponent = () => {
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     if (textToSearch.trim() !== '') {
-      history.push(`${routes.SEARCH}?text=${textToSearch}`);
+      history.push(`${routes.SEARCH}?query=${textToSearch}`);
     }
     setTextToSearch('');
   };
