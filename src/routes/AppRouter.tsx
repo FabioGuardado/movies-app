@@ -17,7 +17,7 @@ import SeasonsPage from '../pages/SeasonsPage/SeasonsPage';
 
 const AppRouter: React.FunctionComponent = () => {
   return (
-    <Router>
+    <Router forceRefresh={true}>
       <Navbar />
       <Switch>
         <Route path={`${routes.SHOW}:id${routes.CAST}`}>
