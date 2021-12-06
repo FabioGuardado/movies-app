@@ -25,9 +25,15 @@ export const getDate = (element: IMovieSummary | IShowSummary) => {
 export const getDetailsLink = (
   element: IMovieSummary | IShowSummary | IPersonSummary,
 ) => {
-  return `/${element.media_type === 'tv' ? 'show' : element.media_type}/${
-    element.id
-  }`;
+  if (element.media_type) {
+    return `/${element.media_type === 'tv' ? 'show' : element.media_type}/${
+      element.id
+    }`;
+  } else {
+    if ('title' in element) return `/movie/${element.id}`;
+
+    return `/show/${element.id}`;
+  }
 };
 
 export const isCast = (element: ICast | ICrew) => {
