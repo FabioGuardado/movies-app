@@ -11,7 +11,7 @@ import PaginatorProps from '../../../types/PaginatorProps';
 const Paginator: React.FunctionComponent<PaginatorProps> = ({
   totalPages,
   currentPage,
-  setCurrentPage,
+  setNewPage,
 }) => {
   const [pages, setPages] = useState<Array<number> | []>([]);
 
@@ -26,7 +26,7 @@ const Paginator: React.FunctionComponent<PaginatorProps> = ({
   }, [totalPages]);
 
   const handleNewPage = (page: number) => {
-    setCurrentPage(page);
+    setNewPage(page);
   };
 
   return (
@@ -57,7 +57,9 @@ const Paginator: React.FunctionComponent<PaginatorProps> = ({
           (page > currentPage && page <= currentPage + 2) ||
           (page < currentPage && page >= currentPage - 2) ||
           (currentPage === 1 && page <= currentPage + 4) ||
-          (currentPage === 2 && page <= currentPage + 3) ? (
+          (currentPage === 2 && page <= currentPage + 3) ||
+          ((currentPage === totalPages || currentPage === totalPages - 1) &&
+            page >= totalPages - 4) ? (
             <button
               key={page}
               onClick={() => handleNewPage(page)}
