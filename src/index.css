@@ -160,6 +160,15 @@
     height: 300px;
   }
 
+  .filter-page-card {
+    width: 200px;
+  }
+
+  .filter-page-card img {
+    width: 200px;
+    height: auto;
+  }
+
   @media screen and (max-width: 1024px) {
     .wrapper {
       width: 90vw;
@@ -184,6 +193,14 @@
       width: 250px;
       margin: 0 auto;
     }
+
+    .filter-page-card {
+      width: 165px;
+    }
+
+    .filter-page-card img {
+      width: 165px;
+    }
   }
 
   @media screen and (max-width: 325px) {
@@ -197,6 +214,14 @@
 
     .empty img {
       width: 300px;
+    }
+
+    .filter-page-card {
+      width: 130px;
+    }
+
+    .filter-page-card img {
+      width: 130px;
     }
   }
 }
