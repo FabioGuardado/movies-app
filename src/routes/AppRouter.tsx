@@ -15,6 +15,7 @@ import ReviewsPage from '../pages/ReviewsPage/ReviewsPage';
 import CastPage from '../pages/CastPage/CastPage';
 import SeasonsPage from '../pages/SeasonsPage/SeasonsPage';
 import MoviesPage from '../pages/MoviesPage/MoviesPage';
+import ShowsPage from '../pages/ShowsPage/ShowsPage';
 
 const AppRouter: React.FunctionComponent = () => {
   return (
@@ -35,6 +36,9 @@ const AppRouter: React.FunctionComponent = () => {
         </Route>
         <Route path={`${routes.SHOW}:id`}>
           <ShowDetails />
+        </Route>
+        <Route path={routes.SHOW}>
+          <ShowsPage />
         </Route>
         <Route path={`${routes.MOVIE}:id${routes.CAST}`}>
           <CastPage />
