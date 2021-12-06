@@ -64,7 +64,11 @@ const ShowDetails: React.FunctionComponent = () => {
                 <span>{showData.first_air_date}</span>
                 <div className="my-3 flex flex-row flex-wrap items-center">
                   {showData.genres.map((genre: IGenre) => (
-                    <GenreTag key={genre.id} genre={genre} />
+                    <GenreTag
+                      key={genre.id}
+                      genre={genre}
+                      element_type="show"
+                    />
                   ))}
                 </div>
               </div>
