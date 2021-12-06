@@ -18,3 +18,8 @@ export async function getMovieGenres() {
   );
   return response;
 }
+
+export async function getShowGenres() {
+  const response = await get<IGenresList>(`/genre/tv/list?api_key=${API_KEY}`);
+  return response;
+}
