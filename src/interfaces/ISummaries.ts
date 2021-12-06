@@ -13,6 +13,7 @@ export interface IMovieSummary {
   vote_count: number;
   video: boolean;
   vote_average: number;
+  media_type?: string;
 }
 
 export interface IShowSummary {
@@ -29,6 +30,7 @@ export interface IShowSummary {
   vote_count: number;
   name: string;
   original_name: string;
+  media_type?: string;
 }
 
 export interface ISeasonSummary {
@@ -39,4 +41,16 @@ export interface ISeasonSummary {
   overview: string;
   poster_path: string;
   season_number: number;
+}
+
+export interface IPersonSummary {
+  adult: boolean;
+  gender: number;
+  id: number;
+  known_for: IMovieSummary | IShowSummary[];
+  known_for_department: string;
+  media_type: string;
+  name: string;
+  popularity: number;
+  profile_path: string;
 }

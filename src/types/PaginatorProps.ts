@@ -1,7 +1,7 @@
 type PaginatorProps = {
   totalPages: number;
   currentPage: number;
-  setCurrentPage: CallableFunction;
+  setNewPage: CallableFunction;
 };
 
 export default PaginatorProps;
