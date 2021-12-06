@@ -8,6 +8,22 @@ import { IShowSummary } from '../interfaces/ISummaries';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
+export async function getShowsWithFilters(
+  page: number,
+  genre?: number | null,
+  air_date_year?: number | null,
+) {
+  const response = await get<IResponse<IShowSummary>>(
+    `/discover/tv?api_key=${API_KEY}&sort_by=popularity.desc&page=${
+      page ? page : 1
+    }${genre ? `&with_genres=${genre}` : ''}${
+      air_date_year ? `&first_air_date_year=${air_date_year}` : ''
+    }
+  `,
+  );
+  return response;
+}
+
 export async function getPopularShows() {
   const response = await get<IResponse<IShowSummary>>(
     `/tv/popular?api_key=${API_KEY}`,
