@@ -9,6 +9,7 @@ import IUser from '../interfaces/IUser';
 import routes from '../routes/routes';
 
 function useProvideAuth() {
+  /* eslint-disable @typescript-eslint/no-unused-vars */
   const [user, setUser] = useState<IUser | null>(() => {
     let user = localStorage.getItem('tmdbUser');
     let parsedUser: IUser | null = null;
@@ -33,7 +34,6 @@ function useProvideAuth() {
   const logout = async () => {
     const sessionId = localStorage.getItem('sessionId');
     if (sessionId) {
-      console.log(sessionId);
       const { success } = await deleteSession(sessionId);
 
       if (success) {

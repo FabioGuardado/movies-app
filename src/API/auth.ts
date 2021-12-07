@@ -5,13 +5,6 @@ import IUser from '../interfaces/IUser';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-const headers = {
-  headers: {
-    Authorization: `Bearer ${API_KEY}`,
-    'Content-Type': 'application/json',
-  },
-};
-
 export const getRequestToken = async () => {
   const response = await get<IRequestTokenResponse>(
     `/authentication/token/new?api_key=${API_KEY}`,

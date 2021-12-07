@@ -23,7 +23,7 @@ const Approved: React.FunctionComponent = () => {
     };
 
     getSessionId();
-  }, []);
+  }, [approved, auth, history, requestToken]);
 
   return (
     <Layout>
