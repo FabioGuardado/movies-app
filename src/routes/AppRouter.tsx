@@ -16,6 +16,7 @@ import CastPage from '../pages/CastPage/CastPage';
 import SeasonsPage from '../pages/SeasonsPage/SeasonsPage';
 import MoviesPage from '../pages/MoviesPage/MoviesPage';
 import ShowsPage from '../pages/ShowsPage/ShowsPage';
+import Approved from '../pages/Approved/Approved';
 
 const AppRouter: React.FunctionComponent = () => {
   return (
@@ -63,6 +64,9 @@ const AppRouter: React.FunctionComponent = () => {
         </Route>
         <Route exact path={routes.HOME}>
           <HomePage />
+        </Route>
+        <Route path={routes.APPROVED}>
+          <Approved />
         </Route>
         <Route path="*">
           <NotFoundPage />
