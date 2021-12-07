@@ -64,3 +64,15 @@ export async function getSimilarMovies(movieId: number) {
 
   return response;
 }
+
+export async function getFavoriteMovies(
+  accountId: number,
+  sessionId: string,
+  page?: number,
+) {
+  const response = await get<IResponse<IMovieSummary>>(
+    `/account/${accountId}/favorite/movies?api_key=${API_KEY}&session_id=${sessionId}`,
+  );
+
+  return response;
+}

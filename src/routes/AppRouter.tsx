@@ -16,8 +16,13 @@ import CastPage from '../pages/CastPage/CastPage';
 import SeasonsPage from '../pages/SeasonsPage/SeasonsPage';
 import MoviesPage from '../pages/MoviesPage/MoviesPage';
 import ShowsPage from '../pages/ShowsPage/ShowsPage';
+import Approved from '../pages/Approved/Approved';
+
+import ProtectedRoute from './ProtectedRoute';
+import PublicRoute from './PublicRoute';
 
 const AppRouter: React.FunctionComponent = () => {
+  const isAuth: boolean = localStorage.getItem('sessionId') ? true : false;
   return (
     <Router forceRefresh={true}>
       <Navbar />
@@ -55,15 +60,22 @@ const AppRouter: React.FunctionComponent = () => {
         <Route path={`${routes.PERSON}:id`}>
           <PersonDetails />
         </Route>
-        <Route path={routes.PROFILE}>
-          <ProfilePage />
-        </Route>
+        <ProtectedRoute
+          isAuth={isAuth}
+          path={routes.PROFILE}
+          component={ProfilePage}
+        />
         <Route path={routes.SEARCH}>
           <SearchPage />
         </Route>
         <Route exact path={routes.HOME}>
           <HomePage />
         </Route>
+        <PublicRoute
+          isAuth={isAuth}
+          path={routes.APPROVED}
+          component={Approved}
+        />
         <Route path="*">
           <NotFoundPage />
         </Route>
