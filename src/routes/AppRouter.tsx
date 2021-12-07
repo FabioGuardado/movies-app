@@ -4,22 +4,16 @@ import routes from './routes';
 
 import HomePage from '../pages/HomePage/HomePage';
 import SearchPage from '../pages/SearchPage/SearchPage';
-import MovieDetails from '../pages/MovieDetails/MovieDetails';
 import NotFoundPage from '../pages/404/404';
-import ShowDetails from '../pages/ShowDetails/ShowDetails';
-import SeasonDetails from '../pages/SeasonDetails/SeasonDetails';
 import PersonDetails from '../pages/PersonDetails/PersonDetails';
 import ProfilePage from '../pages/ProfilePage/ProfilePage';
 import Navbar from '../components/UI/Navbar/Navbar';
-import ReviewsPage from '../pages/ReviewsPage/ReviewsPage';
-import CastPage from '../pages/CastPage/CastPage';
-import SeasonsPage from '../pages/SeasonsPage/SeasonsPage';
-import MoviesPage from '../pages/MoviesPage/MoviesPage';
-import ShowsPage from '../pages/ShowsPage/ShowsPage';
 import Approved from '../pages/Approved/Approved';
 
 import ProtectedRoute from './ProtectedRoute';
 import PublicRoute from './PublicRoute';
+import ShowsRouter from './ShowsRouter';
+import MoviesRouter from './MoviesRouter';
 
 const AppRouter: React.FunctionComponent = () => {
   const isAuth: boolean = localStorage.getItem('sessionId') ? true : false;
@@ -27,36 +21,9 @@ const AppRouter: React.FunctionComponent = () => {
     <Router forceRefresh={true}>
       <Navbar />
       <Switch>
-        <Route path={`${routes.SHOW}:id${routes.CAST}`}>
-          <CastPage />
-        </Route>
-        <Route path={`${routes.SHOW}:id${routes.REVIEWS}`}>
-          <ReviewsPage />
-        </Route>
-        <Route path={`${routes.SHOW}:id${routes.SEASONS}:seasonNumber`}>
-          <SeasonDetails />
-        </Route>
-        <Route path={`${routes.SHOW}:id${routes.SEASONS}`}>
-          <SeasonsPage />
-        </Route>
-        <Route path={`${routes.SHOW}:id`}>
-          <ShowDetails />
-        </Route>
-        <Route path={routes.SHOW}>
-          <ShowsPage />
-        </Route>
-        <Route path={`${routes.MOVIE}:id${routes.CAST}`}>
-          <CastPage />
-        </Route>
-        <Route path={`${routes.MOVIE}:id${routes.REVIEWS}`}>
-          <ReviewsPage />
-        </Route>
-        <Route path={`${routes.MOVIE}:id`}>
-          <MovieDetails />
-        </Route>
-        <Route path={routes.MOVIE}>
-          <MoviesPage />
-        </Route>
+        <Route path={routes.SHOW} component={ShowsRouter} />
+        <Route path={routes.MOVIE} component={MoviesRouter} />
+
         <Route path={`${routes.PERSON}:id`}>
           <PersonDetails />
         </Route>
