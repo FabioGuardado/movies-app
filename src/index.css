@@ -169,6 +169,15 @@
     height: auto;
   }
 
+  .profile-image-container {
+    height: 120px;
+    width: 120px;
+  }
+
+  .profile-image-container img {
+    height: 120px;
+  }
+
   @media screen and (max-width: 1024px) {
     .wrapper {
       width: 90vw;
