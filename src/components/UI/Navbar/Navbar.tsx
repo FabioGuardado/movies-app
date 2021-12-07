@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { useAuth } from '../../../hooks/useAuth';
 import routes from '../../../routes/routes';
 import NavbarItem from './NavbarItem/NavbarItem';
 
 const Navbar: React.FunctionComponent = () => {
+  const auth = useAuth();
   const [showBurgerMenu, setShowBurgerMenu] = useState<boolean>(false);
 
   const handleToggleMenu = () => {
@@ -35,11 +37,12 @@ const Navbar: React.FunctionComponent = () => {
             route={routes.SEARCH}
             togglerFunction={handleToggleMenu}
           />
-          <NavbarItem
-            text="My Profile"
-            route={routes.PROFILE}
-            togglerFunction={handleToggleMenu}
-          />
+
+          {auth.user ? (
+            <button onClick={() => auth.logout && auth.logout()}>LOGOUT</button>
+          ) : (
+            <button onClick={() => auth.login && auth.login()}>LOGIN</button>
+          )}
         </ul>
       </div>
     </nav>
