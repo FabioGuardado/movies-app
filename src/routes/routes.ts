@@ -8,7 +8,7 @@ const routes = {
   REVIEWS: '/reviews',
   PERSON: '/person/',
   PROFILE: '/profile',
-  LOGIN: 'https://www.themoviedb.org/authenticate',
+  APPROVED: '/approved',
 };
 
 export default routes;
