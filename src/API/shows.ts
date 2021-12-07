@@ -65,3 +65,11 @@ export async function getSeasonDetails(showId: number, seasonNumber: number) {
   );
   return response;
 }
+
+export async function getFavoriteShows(accountId: number, sessionId: string) {
+  const response = await get<IResponse<IShowSummary>>(
+    `/account/${accountId}/favorite/tv?api_key=${API_KEY}&session_id=${sessionId}`,
+  );
+
+  return response;
+}

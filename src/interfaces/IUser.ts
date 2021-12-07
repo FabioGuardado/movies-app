@@ -10,6 +10,11 @@ interface IUser {
 
 export interface IAvatar {
   gravatar: IGravatar;
+  tmdb?: ITmdbAvatar;
+}
+
+export interface ITmdbAvatar {
+  avatar_path: string | null;
 }
 
 export interface IGravatar {

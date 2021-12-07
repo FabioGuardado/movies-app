@@ -39,9 +39,18 @@ const Navbar: React.FunctionComponent = () => {
           />
 
           {auth.user ? (
-            <button onClick={() => auth.logout && auth.logout()}>LOGOUT</button>
+            <NavbarItem
+              text="My Profile"
+              route={routes.PROFILE}
+              togglerFunction={handleToggleMenu}
+            />
           ) : (
-            <button onClick={() => auth.login && auth.login()}>LOGIN</button>
+            <button
+              className="py-5 w-full text-center text-xl cursor-pointer lg:w-28 lg:py-3 transition lg:hover:bg-gray-300 lg:text-base"
+              onClick={() => auth.login && auth.login()}
+            >
+              Login
+            </button>
           )}
         </ul>
       </div>
