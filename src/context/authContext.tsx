@@ -1,7 +1,10 @@
 import React, { createContext, ReactElement } from 'react';
 import useProvideAuth from '../hooks/useProvideAuth';
+import IUser from '../interfaces/IUser';
 
-export const authContext = createContext<Partial<IAuthContext>>({});
+export const authContext = createContext<Partial<IAuthContext>>({
+  user: null,
+});
 
 export const ProvideAuth: React.FunctionComponent<ProvideAuthProps> = ({
   children,
@@ -15,7 +18,7 @@ type ProvideAuthProps = {
 };
 
 interface IAuthContext {
-  user?: null | {};
+  user: null | IUser;
   login?: () => void;
   createSession?: (requestToken: string) => void;
   logout?: () => void;
