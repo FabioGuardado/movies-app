@@ -1,5 +1,7 @@
 import { del, get, post } from '../helpers/requestService';
 import ICreateSessionResponse from '../interfaces/ICreateSessionResponse';
+import IFavoriteBody from '../interfaces/IFavoriteBody';
+import IFavoriteResponse from '../interfaces/IFavoriteResponse';
 import IRequestTokenResponse from '../interfaces/IRequestTokenResponse';
 import IUser from '../interfaces/IUser';
 
@@ -40,4 +42,18 @@ export const deleteSession = async (sessionId: string) => {
 
 type deleteSessionResponse = {
   success: boolean;
+};
+
+export const markAsFavorite = async (
+  sessionId: string,
+  accountId: string | number,
+  mediaId: number,
+  mediaType: string,
+  favorite: boolean,
+) => {
+  const response = await post<IFavoriteBody, IFavoriteResponse>(
+    `/account/${accountId}/favorite?api_key=${API_KEY}&session_id=${sessionId}`,
+    { media_type: mediaType, media_id: mediaId, favorite: favorite },
+  );
+  return response;
 };

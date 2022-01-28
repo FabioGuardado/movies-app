@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLink, faStar, faUsers } from '@fortawesome/free-solid-svg-icons';
 
-import { getMovieById } from '../../API/movies';
+import { getAccountStates, getMovieById } from '../../API/movies';
 import formatQuantities from '../../utils/formatQuantities';
 import scrollTop from '../../utils/scrollTop';
 
@@ -14,14 +14,25 @@ import GenreTag from '../../components/UI/GenreTag/GenreTag';
 import Layout from '../../components/UI/Layout/Layout';
 import Loader from '../../components/UI/Loader/Loader';
 import Reviews from '../../components/Details/ReviewsSection/Reviews';
+import Notification from '../../components/UI/Notification/Notification';
 
 import IGenre from '../../interfaces/IGenre';
 import IMovie from '../../interfaces/IMovie';
 import DetailsParams from '../../types/DetailsParams';
+import IUser from '../../interfaces/IUser';
+import FavoriteButton from '../../components/Details/FavoriteButton/FavoriteButton';
 
 const MovieDetails: React.FunctionComponent = () => {
-  const [movieData, setMovieData] = useState<IMovie | null>(null);
   let { id }: DetailsParams = useParams();
+  const sessionId = localStorage.getItem('sessionId');
+  const userObject = localStorage.getItem('tmdbUser');
+  const user: IUser | null = userObject ? JSON.parse(userObject) : null;
+  const [movieData, setMovieData] = useState<IMovie | null>(null);
+  const [isFavorite, setIsFavorite] = useState<boolean>(false);
+  const [notification, setNotification] = useState({
+    active: false,
+    message: '',
+  });
 
   useEffect(() => {
     scrollTop();
@@ -29,6 +40,11 @@ const MovieDetails: React.FunctionComponent = () => {
 
     const getData = async () => {
       const movieResponse = await getMovieById(Number(id));
+
+      if (sessionId) {
+        const accountState = await getAccountStates(Number(id), sessionId);
+        if (accountState.favorite) setIsFavorite(true);
+      }
 
       if (mounted) {
         setMovieData(movieResponse);
@@ -40,9 +56,15 @@ const MovieDetails: React.FunctionComponent = () => {
     return () => {
       mounted = false;
     };
-  }, [id]);
+  }, [id, notification]);
   return (
     <>
+      {notification.active && (
+        <Notification
+          notification={notification}
+          setNotification={setNotification}
+        />
+      )}
       {movieData ? (
         <>
           <section className="mb-5 flex flex-col sm:flex-row bg-gradient-to-r from-blue-900 via-blue-400 to-green-500 px-5 md:px-16 py-6">
@@ -55,7 +77,20 @@ const MovieDetails: React.FunctionComponent = () => {
             </div>
             <div className="sm:w-2/3 text-white self-center mt-3">
               <div id="header" className="">
-                <h1 className="text-4xl font-bold mb-2">{movieData.title}</h1>
+                <div className="flex flex-row">
+                  <h1 className="mr-4 text-4xl font-bold mb-2">
+                    {movieData.title}
+                  </h1>
+                  <FavoriteButton
+                    sessionId={sessionId}
+                    accountId={user?.id}
+                    mediaType={'movie'}
+                    mediaId={movieData.id}
+                    favorite={isFavorite}
+                    setIsFavorite={setIsFavorite}
+                    setNotification={setNotification}
+                  />
+                </div>
                 <span className="p-1 mr-3 border border-solid border-white rounded-md uppercase">
                   {movieData.original_language}
                 </span>
@@ -71,7 +106,7 @@ const MovieDetails: React.FunctionComponent = () => {
                 </div>
               </div>
               <div id="community" className="my-8 flex flex-row">
-                <div className="mr-10 flex flex-col items-center">
+                <div className="mr-8 flex flex-col items-center">
                   <span className="p-2 w-12 h-12 bg-gray-700 rounded-full flex flex-row justify-center items-center">
                     <FontAwesomeIcon icon={faUsers} />
                   </span>
@@ -80,7 +115,7 @@ const MovieDetails: React.FunctionComponent = () => {
                     {formatQuantities(Math.ceil(movieData.popularity))}
                   </span>
                 </div>
-                <div className="flex flex-col items-center">
+                <div className="mr-8 flex flex-col items-center">
                   <span className="p-2 w-12 h-12 bg-gray-700 rounded-full flex flex-row justify-center items-center">
                     <FontAwesomeIcon icon={faStar} />
                   </span>
