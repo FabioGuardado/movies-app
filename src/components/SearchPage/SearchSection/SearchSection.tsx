@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import routes from '../../../routes/routes';
+import SuggestionsList from '../SuggestionsList/SuggestionsList';
 
 const SearchSection: React.FunctionComponent = () => {
   let history = useHistory();
@@ -31,6 +32,7 @@ const SearchSection: React.FunctionComponent = () => {
             value={textToSearch}
             onChange={handleChange}
           />
+          <SuggestionsList textToSearch={textToSearch} />
           <button
             className="absolute h-full right-0 bg-blue-700 text-white px-3 md:px-8 text-xs md:text-base rounded-r-md"
             form="query-form"
