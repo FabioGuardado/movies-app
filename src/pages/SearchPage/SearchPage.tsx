@@ -23,13 +23,8 @@ const SearchPage: React.FunctionComponent = () => {
   const [response, setResponse] = useState<IResponse<
     IMovieSummary | IShowSummary | IPersonSummary
   > | null>(null);
-  /* eslint-disable @typescript-eslint/no-unused-vars */
-  const [currentPage, setCurrentPage] = useState<number>(() =>
-    page ? Number(page) : 1,
-  );
-  const [queryText, setQueryText] = useState<string | null>(() =>
-    query ? query : null,
-  );
+  const [currentPage] = useState<number>(() => (page ? Number(page) : 1));
+  const [queryText] = useState<string | null>(() => (query ? query : null));
 
   useEffect(() => {
     scrollTop();
