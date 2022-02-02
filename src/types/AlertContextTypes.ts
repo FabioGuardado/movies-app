@@ -1,11 +1,12 @@
+import IAlertStatus from '../interfaces/IAlertStatus';
+
 export type AlertProviderProps = {
   children: React.ReactNode;
 };
 
 export type AlertProviderValue = {
-  alert: string;
-  alertText: string | null;
-  success: (text: string, timeout: number) => void;
-  error: (text: string, timeout: number) => void;
-  clear: () => void;
+  alert: IAlertStatus;
+  showSuccessAlert: CallableFunction;
+  showErrorAlert: CallableFunction;
+  clearAlerts: CallableFunction;
 };
