@@ -1,4 +1,4 @@
-import { ProvideAuth } from './context/authContext';
+import { AuthProvider } from './context/authContext';
 import { AlertProvider } from './context/alertContext';
 
 import AppRouter from './routes/AppRouter';
@@ -8,7 +8,7 @@ import MainModal from './components/UI/Modals/MainModal/MainModal';
 
 function App() {
   return (
-    <ProvideAuth>
+    <AuthProvider>
       <ModalProvider>
         <AlertProvider>
           <AppRouter />
@@ -16,7 +16,7 @@ function App() {
           <MainModal />
         </AlertProvider>
       </ModalProvider>
-    </ProvideAuth>
+    </AuthProvider>
   );
 }
 

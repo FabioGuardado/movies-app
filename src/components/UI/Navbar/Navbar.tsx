@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
-import { useAuth } from '../../../hooks/useAuth';
+import useAuth from '../../../hooks/useAuth';
 import routes from '../../../routes/routes';
 import NavbarItem from './NavbarItem/NavbarItem';
 
 const Navbar: React.FunctionComponent = () => {
-  const auth = useAuth();
+  const { user, login } = useAuth();
   const [showBurgerMenu, setShowBurgerMenu] = useState<boolean>(false);
 
   const handleToggleMenu = () => {
@@ -38,7 +38,7 @@ const Navbar: React.FunctionComponent = () => {
             togglerFunction={handleToggleMenu}
           />
 
-          {auth.user ? (
+          {user ? (
             <NavbarItem
               text="My Profile"
               route={routes.PROFILE}
@@ -47,7 +47,7 @@ const Navbar: React.FunctionComponent = () => {
           ) : (
             <button
               className="py-5 w-full text-center text-xl cursor-pointer lg:w-28 lg:py-3 transition lg:hover:bg-gray-300 lg:text-base"
-              onClick={() => auth.login && auth.login()}
+              onClick={() => login()}
             >
               Login
             </button>

@@ -1,6 +1,14 @@
 import { useContext } from 'react';
-import { authContext } from '../context/authContext';
+import AuthContext from '../context/authContext';
 
-export const useAuth = () => {
-  return useContext(authContext);
+const useAuth = () => {
+  const authContext = useContext(AuthContext);
+
+  if (!authContext) {
+    throw new Error('useAlertContext must be used within an AlertProvider');
+  }
+
+  return authContext;
 };
+
+export default useAuth;
