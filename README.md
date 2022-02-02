@@ -1,6 +1,6 @@
-# Final Project - v0.4.1
+# Final Project - v0.5.0
 
-This repo contains the release 0.4.1 of the MoviesApp project.
+This repo contains the release 0.5.0 of the MoviesApp project.
 
 ## Installation and usage
 
