@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import { useAuth } from '../../../hooks/useAuth';
+import useAuth from '../../../hooks/useAuth';
 import ModalContext from '../../../context/modalContext';
 
 const LogoutButton: React.FunctionComponent = () => {
-  const auth = useAuth();
+  const { logout } = useAuth();
   const modalContext = useContext(ModalContext);
 
   const logoutModalBody = (
@@ -14,7 +14,7 @@ const LogoutButton: React.FunctionComponent = () => {
       <div className="w-full flex flex-row items-center justify-evenly">
         <button
           className="py-2 px-4 bg-green-600 text-white text-lg rounded-lg shadow-md"
-          onClick={() => auth.logout && auth.logout()}
+          onClick={() => logout()}
         >
           Yes, see you later!
         </button>
