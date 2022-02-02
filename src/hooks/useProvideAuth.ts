@@ -21,7 +21,7 @@ function useProvideAuth() {
   const [sessionId] = useState<string | null>(() => {
     let storedSessionId = localStorage.getItem('sessionId');
     let parsedSessionId: string | null = null;
-    if (sessionId) {
+    if (storedSessionId) {
       parsedSessionId = storedSessionId;
     }
     return parsedSessionId;
