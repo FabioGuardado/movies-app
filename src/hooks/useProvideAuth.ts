@@ -9,14 +9,22 @@ import IUser from '../interfaces/IUser';
 import routes from '../routes/routes';
 
 function useProvideAuth() {
-  /* eslint-disable @typescript-eslint/no-unused-vars */
-  const [user, setUser] = useState<IUser | null>(() => {
+  const [user] = useState<IUser | null>(() => {
     let user = localStorage.getItem('tmdbUser');
     let parsedUser: IUser | null = null;
     if (user) {
       parsedUser = JSON.parse(user);
     }
     return parsedUser;
+  });
+
+  const [sessionId] = useState<string | null>(() => {
+    let storedSessionId = localStorage.getItem('sessionId');
+    let parsedSessionId: string | null = null;
+    if (sessionId) {
+      parsedSessionId = storedSessionId;
+    }
+    return parsedSessionId;
   });
 
   const login = async () => {
@@ -46,6 +54,7 @@ function useProvideAuth() {
 
   return {
     user,
+    sessionId,
     login,
     createSession,
     logout,
