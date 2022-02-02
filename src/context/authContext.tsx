@@ -1,25 +1,14 @@
-import React, { createContext, ReactElement } from 'react';
+import React, { createContext } from 'react';
 import useProvideAuth from '../hooks/useProvideAuth';
-import IUser from '../interfaces/IUser';
+import { AuthContextValue, AuthProviderProps } from '../types/AuthContextTypes';
 
-export const authContext = createContext<Partial<IAuthContext>>({
-  user: null,
-});
+const AuthContext = createContext<AuthContextValue | null>(null);
 
-export const ProvideAuth: React.FunctionComponent<ProvideAuthProps> = ({
+export const AuthProvider: React.FunctionComponent<AuthProviderProps> = ({
   children,
 }) => {
   const auth = useProvideAuth();
-  return <authContext.Provider value={auth}>{children}</authContext.Provider>;
+  return <AuthContext.Provider value={auth}>{children}</AuthContext.Provider>;
 };
 
-type ProvideAuthProps = {
-  children: ReactElement;
-};
-
-interface IAuthContext {
-  user: null | IUser;
-  login?: () => void;
-  createSession?: (requestToken: string) => void;
-  logout?: () => void;
-}
+export default AuthContext;

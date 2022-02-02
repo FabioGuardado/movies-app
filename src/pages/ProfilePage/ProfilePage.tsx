@@ -8,10 +8,9 @@ import { IMovieSummary, IShowSummary } from '../../interfaces/ISummaries';
 import { getFavoriteMovies } from '../../API/movies';
 import ResultCard from '../../components/SearchPage/ResultCard/ResultCard';
 import { getFavoriteShows } from '../../API/shows';
-import { useAuth } from '../../hooks/useAuth';
+import LogoutButton from '../../components/UI/LogoutButton/LogoutButton';
 
 const ProfilePage: React.FunctionComponent = () => {
-  const auth = useAuth();
   const sessionId = localStorage.getItem('sessionId');
   const user = localStorage.getItem('tmdbUser');
   const parsedUser: IUser | null = user ? JSON.parse(user) : null;
@@ -71,12 +70,7 @@ const ProfilePage: React.FunctionComponent = () => {
           </p>
         </div>
         <div className="absolute bottom-5 right-5">
-          <button
-            className="px-4 py-2 rounded-md bg-red-600 transition-all hover:bg-red-500"
-            onClick={() => auth.logout && auth.logout()}
-          >
-            Logout
-          </button>
+          <LogoutButton />
         </div>
       </section>
 

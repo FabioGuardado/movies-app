@@ -18,10 +18,11 @@ import Reviews from '../../components/Details/ReviewsSection/Reviews';
 import IGenre from '../../interfaces/IGenre';
 import IMovie from '../../interfaces/IMovie';
 import DetailsParams from '../../types/DetailsParams';
+import FavoriteButton from '../../components/Details/FavoriteButton/FavoriteButton';
 
 const MovieDetails: React.FunctionComponent = () => {
-  const [movieData, setMovieData] = useState<IMovie | null>(null);
   let { id }: DetailsParams = useParams();
+  const [movieData, setMovieData] = useState<IMovie | null>(null);
 
   useEffect(() => {
     scrollTop();
@@ -54,8 +55,13 @@ const MovieDetails: React.FunctionComponent = () => {
               />
             </div>
             <div className="sm:w-2/3 text-white self-center mt-3">
-              <div id="header" className="">
-                <h1 className="text-4xl font-bold mb-2">{movieData.title}</h1>
+              <div id="header">
+                <div className="flex flex-row">
+                  <h1 className="mr-4 text-4xl font-bold mb-2">
+                    {movieData.title}
+                  </h1>
+                  <FavoriteButton mediaType={'movie'} mediaId={movieData.id} />
+                </div>
                 <span className="p-1 mr-3 border border-solid border-white rounded-md uppercase">
                   {movieData.original_language}
                 </span>
@@ -71,7 +77,7 @@ const MovieDetails: React.FunctionComponent = () => {
                 </div>
               </div>
               <div id="community" className="my-8 flex flex-row">
-                <div className="mr-10 flex flex-col items-center">
+                <div className="mr-8 flex flex-col items-center">
                   <span className="p-2 w-12 h-12 bg-gray-700 rounded-full flex flex-row justify-center items-center">
                     <FontAwesomeIcon icon={faUsers} />
                   </span>
@@ -80,7 +86,7 @@ const MovieDetails: React.FunctionComponent = () => {
                     {formatQuantities(Math.ceil(movieData.popularity))}
                   </span>
                 </div>
-                <div className="flex flex-col items-center">
+                <div className="mr-8 flex flex-col items-center">
                   <span className="p-2 w-12 h-12 bg-gray-700 rounded-full flex flex-row justify-center items-center">
                     <FontAwesomeIcon icon={faStar} />
                   </span>

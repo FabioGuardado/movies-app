@@ -1,4 +1,5 @@
 import { get } from '../helpers/requestService';
+import IAccountStateResponse from '../interfaces/IAccountStateResponse';
 import ICredits from '../interfaces/ICredits';
 import IMovie from '../interfaces/IMovie';
 import IResponse from '../interfaces/IResponse';
@@ -72,6 +73,14 @@ export async function getFavoriteMovies(
 ) {
   const response = await get<IResponse<IMovieSummary>>(
     `/account/${accountId}/favorite/movies?api_key=${API_KEY}&session_id=${sessionId}`,
+  );
+
+  return response;
+}
+
+export async function getAccountStates(movieId: number, sessionId: string) {
+  const response = await get<IAccountStateResponse>(
+    `/movie/${movieId}/account_states?api_key=${API_KEY}&session_id=${sessionId}`,
   );
 
   return response;
