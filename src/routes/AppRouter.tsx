@@ -14,11 +14,14 @@ import ProtectedRoute from './ProtectedRoute';
 import PublicRoute from './PublicRoute';
 import ShowsRouter from './ShowsRouter';
 import MoviesRouter from './MoviesRouter';
+import useAuth from '../hooks/useAuth';
 
 const AppRouter: React.FunctionComponent = () => {
-  const isAuth: boolean = localStorage.getItem('sessionId') ? true : false;
+  const { sessionId } = useAuth();
+  const isAuth: boolean = sessionId ? true : false;
+
   return (
-    <Router forceRefresh={true}>
+    <Router forceRefresh>
       <Navbar />
       <Switch>
         <Route path={routes.SHOW} component={ShowsRouter} />
