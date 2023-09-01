@@ -1,10 +1,5 @@
-# Final Project - v0.5.0
+# MoviesApp - v0.5.0
 
 This repo contains the release 0.5.0 of the MoviesApp project.
 
-## Installation and usage
-
-Clone or download the repo and run with NPM terminal using the command:  
-`npm run start`
-
-You also can visit the app [in this link!](https://trainee-program-final-project.vercel.app)
+You also can visit the app [in this link!](https://movies-app.vercel.app)
