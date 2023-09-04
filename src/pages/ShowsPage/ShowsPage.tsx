@@ -46,9 +46,10 @@ const ShowsPage: React.FunctionComponent = () => {
     );
   };
 
+  if (!shows) return <Loader />;
+
   return (
     <>
-      {!shows && <Loader />}
       <Layout>
         <div className="my-8 flex flex-col lg:flex-row">
           <ShowsFilters />

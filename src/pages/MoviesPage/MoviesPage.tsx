@@ -48,9 +48,10 @@ const MoviesPage: React.FunctionComponent = () => {
     );
   };
 
+  if (!movies) return <Loader />;
+
   return (
     <>
-      {!movies && <Loader />}
       <Layout>
         <div className="my-8 flex flex-col lg:flex-row">
           <MoviesFilters />
