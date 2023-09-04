@@ -2,9 +2,4 @@
 
 This repo contains the release 0.5.0 of the MoviesApp project.
 
-## Installation and usage
-
-Clone or download the repo and run with NPM terminal using the command:  
-`npm run start`
-
-You also can visit the app [in this link!](https://trainee-program-final-project.vercel.app)
+You can visit the app [in this link!](https://64f545758db6117662060a2d--statuesque-frangipane-d55f41.netlify.app/)
