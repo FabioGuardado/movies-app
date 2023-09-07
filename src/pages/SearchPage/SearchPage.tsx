@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import { multiSearch } from '../../API/multiSearch';
 import SearchSection from '../../components/SearchPage/SearchSection/SearchSection';
 import ResultCard from '../../components/SearchPage/ResultCard/ResultCard';

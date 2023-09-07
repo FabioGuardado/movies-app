@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import { getMoviesWithFilters } from '../../API/movies';
 import MoviesFilters from '../../components/MoviesPage/MoviesFilters/MoviesFilters';
 import FilterPageCard from '../../components/UI/FilterPageCard/FilterPageCard';

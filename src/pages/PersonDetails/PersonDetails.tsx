@@ -38,7 +38,7 @@ const PersonDetails: React.FunctionComponent = () => {
           className="rounded-md"
           src={
             personData.profile_path
-              ? `${process.env.REACT_APP_IMAGE_URL}${personData.profile_path}`
+              ? `${import.meta.env.VITE_IMAGE_URL}${personData.profile_path}`
               : defaultImage
           }
           alt={personData.name}

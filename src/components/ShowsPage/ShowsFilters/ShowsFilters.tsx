@@ -1,5 +1,5 @@
 import React, { useState, useEffect, ChangeEventHandler } from 'react';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import { getShowGenres } from '../../../API/filters';
 import useURLParams from '../../../hooks/useURLParams';
 import IGenre, { IGenresList } from '../../../interfaces/IGenre';

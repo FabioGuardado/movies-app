@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router';
+import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLink, faStar, faUsers } from '@fortawesome/free-solid-svg-icons';
 
@@ -50,7 +50,9 @@ const MovieDetails: React.FunctionComponent = () => {
             <div className="image-container mx-auto md:mr-10 flex flex-row justify-center">
               <img
                 className="rounded-md"
-                src={`${process.env.REACT_APP_IMAGE_URL}${movieData.poster_path}`}
+                src={`${import.meta.env.VITE_IMAGE_URL}${
+                  movieData.poster_path
+                }`}
                 alt={movieData.title}
               />
             </div>

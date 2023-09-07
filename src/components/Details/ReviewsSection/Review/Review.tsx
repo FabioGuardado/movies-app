@@ -14,7 +14,9 @@ const Review: React.FunctionComponent<ReviewProps> = ({ review }) => {
             src={
               review.author_details.avatar_path &&
               !review.author_details.avatar_path.includes('gravatar')
-                ? `${process.env.REACT_APP_IMAGE_URL}${review.author_details.avatar_path}`
+                ? `${import.meta.env.VITE_IMAGE_URL}${
+                    review.author_details.avatar_path
+                  }`
                 : defaultImage
             }
             alt={review.id}

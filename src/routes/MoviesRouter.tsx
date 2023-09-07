@@ -1,6 +1,5 @@
 import React from 'react';
-import { Switch } from 'react-router';
-import { Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import CastPage from '../pages/CastPage/CastPage';
 import MovieDetails from '../pages/MovieDetails/MovieDetails';
 import MoviesPage from '../pages/MoviesPage/MoviesPage';

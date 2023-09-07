@@ -1,8 +1,7 @@
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
-import { useLocation, useParams } from 'react-router';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { getCreditsByMovieId } from '../../API/movies';
 import Layout from '../../components/UI/Layout/Layout';
 import Loader from '../../components/UI/Loader/Loader';
@@ -69,7 +68,9 @@ const CastPage: React.FunctionComponent = () => {
                   <img
                     src={
                       castMember.profile_path
-                        ? `${process.env.REACT_APP_IMAGE_URL}${castMember.profile_path}`
+                        ? `${import.meta.env.VITE_IMAGE_URL}${
+                            castMember.profile_path
+                          }`
                         : defaultImage
                     }
                     alt={castMember.name}
@@ -93,7 +94,9 @@ const CastPage: React.FunctionComponent = () => {
                   <img
                     src={
                       crewMember.profile_path
-                        ? `${process.env.REACT_APP_IMAGE_URL}${crewMember.profile_path}`
+                        ? `${import.meta.env.VITE_IMAGE_URL}${
+                            crewMember.profile_path
+                          }`
                         : defaultImage
                     }
                     alt={crewMember.name}

@@ -13,7 +13,7 @@ const SeasonCard: React.FunctionComponent<SeasonCardProps> = ({
     >
       <div className="season-card my-4 flex flex-row shadow-md rounded-md overflow-hidden object-contain border border-gray-200 border-solid">
         <img
-          src={`${process.env.REACT_APP_IMAGE_URL}${season.poster_path}`}
+          src={`${import.meta.env.VITE_IMAGE_URL}${season.poster_path}`}
           alt={season.name}
         />
         <div className="h-full p-2 sm:p-4 my-auto overflow-hidden">

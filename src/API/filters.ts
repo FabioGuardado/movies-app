@@ -2,7 +2,7 @@ import { get } from '../helpers/requestService';
 import { ICertificationsList } from '../interfaces/ICertification';
 import { IGenresList } from '../interfaces/IGenre';
 
-const API_KEY = process.env.REACT_APP_API_KEY;
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 export async function getMovieCertifications() {
   const response = await get<ICertificationsList>(

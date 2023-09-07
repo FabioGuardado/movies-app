@@ -13,7 +13,7 @@ const EpisodeCard: React.FunctionComponent<EpisodeCardProps> = ({
       <img
         src={
           episode.still_path
-            ? `${process.env.REACT_APP_IMAGE_URL}${episode.still_path}`
+            ? `${import.meta.env.VITE_IMAGE_URL}${episode.still_path}`
             : defaultImage
         }
         alt={`${episode.id}`}

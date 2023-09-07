@@ -6,7 +6,7 @@ import ISeason from '../interfaces/ISeason';
 import IShow from '../interfaces/IShow';
 import { IShowSummary } from '../interfaces/ISummaries';
 
-const API_KEY = process.env.REACT_APP_API_KEY;
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 export async function getShowsWithFilters(
   page: number,

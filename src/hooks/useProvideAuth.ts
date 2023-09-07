@@ -29,7 +29,9 @@ function useProvideAuth() {
 
   const login = async () => {
     const data = await getRequestToken();
-    window.location.href = `https://www.themoviedb.org/authenticate/${data.request_token}?redirect_to=${process.env.REACT_APP_HOSTNAME}/approved`;
+    window.location.href = `https://www.themoviedb.org/authenticate/${
+      data.request_token
+    }?redirect_to=${import.meta.env.VITE_HOSTNAME}/approved`;
   };
 
   const createSession = async (requestToken: string) => {

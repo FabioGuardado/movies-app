@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import { getShowsWithFilters } from '../../API/shows';
 import ShowsFilters from '../../components/ShowsPage/ShowsFilters/ShowsFilters';
 import FilterPageCard from '../../components/UI/FilterPageCard/FilterPageCard';

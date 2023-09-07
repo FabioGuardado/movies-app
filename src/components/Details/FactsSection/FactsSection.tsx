@@ -31,9 +31,7 @@ const FactsSection: React.FunctionComponent<FactsSectionProps> = ({ data }) => {
             <div className="network-element text-center">
               <h3 className="font-bold text-center">Network</h3>
               <img
-                src={`${process.env.REACT_APP_IMAGE_URL}${getNetworkPath(
-                  data,
-                )}`}
+                src={`${import.meta.env.VITE_IMAGE_URL}${getNetworkPath(data)}`}
                 alt={getOriginalNameOrTitle(data)}
               />
             </div>

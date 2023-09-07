@@ -1,5 +1,5 @@
-const BASE_URL = process.env.REACT_APP_API_URL;
-const API_KEY = process.env.REACT_APP_API_KEY;
+const BASE_URL = import.meta.env.VITE_API_URL;
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 async function http<T>(path: string, config: RequestInit): Promise<T> {
   const request = new Request(`${BASE_URL}${path}`, config);

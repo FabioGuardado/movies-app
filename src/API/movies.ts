@@ -6,7 +6,7 @@ import IResponse from '../interfaces/IResponse';
 import IReview from '../interfaces/IReview';
 import { IMovieSummary } from '../interfaces/ISummaries';
 
-const API_KEY = process.env.REACT_APP_API_KEY;
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 export async function getMoviesWithFilters(
   page: number,
@@ -69,7 +69,7 @@ export async function getSimilarMovies(movieId: number) {
 export async function getFavoriteMovies(
   accountId: number,
   sessionId: string,
-  page?: number,
+  _page?: number,
 ) {
   const response = await get<IResponse<IMovieSummary>>(
     `/account/${accountId}/favorite/movies?api_key=${API_KEY}&session_id=${sessionId}`,

@@ -19,7 +19,7 @@ const SimilarItemCard: React.FunctionComponent<SimilarItemCardProps> = ({
           className="rounded-md"
           src={
             item.backdrop_path
-              ? `${process.env.REACT_APP_IMAGE_URL}${item.backdrop_path}`
+              ? `${import.meta.env.VITE_IMAGE_URL}${item.backdrop_path}`
               : defaultImage
           }
           alt={getNameOrTitle(item)}

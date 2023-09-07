@@ -54,7 +54,9 @@ const ProfilePage: React.FunctionComponent = () => {
           <img
             src={
               parsedUser?.avatar.tmdb?.avatar_path
-                ? `${process.env.REACT_APP_IMAGE_URL}${parsedUser.avatar.tmdb.avatar_path}`
+                ? `${import.meta.env.VITE_IMAGE_URL}${
+                    parsedUser.avatar.tmdb.avatar_path
+                  }`
                 : defaultImage
             }
             alt={parsedUser?.username}

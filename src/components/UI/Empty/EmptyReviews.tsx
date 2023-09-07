@@ -1,8 +1,7 @@
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
-import { useLocation } from 'react-router';
-import { Link } from 'react-router-dom';
 import emptyImage from '../../../assets/empty.png';
 
 const EmptyReviews: React.FunctionComponent = () => {

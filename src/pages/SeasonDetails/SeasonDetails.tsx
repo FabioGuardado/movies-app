@@ -1,8 +1,7 @@
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Layout from '../../components/UI/Layout/Layout';
 import Loader from '../../components/UI/Loader/Loader';
 import routes from '../../routes/routes';

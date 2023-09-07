@@ -14,7 +14,7 @@ const PersonCard: React.FunctionComponent<PersonCardProps> = ({ person }) => {
           <img
             src={
               person.profile_path
-                ? `${process.env.REACT_APP_IMAGE_URL}${person.profile_path}`
+                ? `${import.meta.env.VITE_IMAGE_URL}${person.profile_path}`
                 : defaultImage
             }
             alt={person.name}

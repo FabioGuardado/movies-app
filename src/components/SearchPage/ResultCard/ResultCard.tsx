@@ -16,7 +16,7 @@ const ResultCard: React.FunctionComponent<ResultCardProps> = ({ data }) => {
         <img
           src={
             getPicture(data)
-              ? `${process.env.REACT_APP_IMAGE_URL}${getPicture(data)}`
+              ? `${import.meta.env.VITE_IMAGE_URL}${getPicture(data)}`
               : defaultImage
           }
           alt={getNameOrTitle(data)}

@@ -14,7 +14,7 @@ const FilterPageCard: React.FunctionComponent<HomePageCardProps> = ({
         <img
           src={
             data.poster_path
-              ? `${process.env.REACT_APP_IMAGE_URL}${data.poster_path}`
+              ? `${import.meta.env.VITE_IMAGE_URL}${data.poster_path}`
               : defaultImage
           }
           alt={getNameOrTitle(data)}
